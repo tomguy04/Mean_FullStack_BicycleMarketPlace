@@ -7,6 +7,7 @@ import { ManagePlayersComponent } from './manage-players/manage-players.componen
 import { ManageStatusComponent } from './manage-status/manage-status.component';
 import { ReadGameStatusComponent } from './read-game-status/read-game-status.component';
 import { UpdateGameStatusComponent } from './update-game-status/update-game-status.component';
+import { BrowseComponent } from './browse/browse.component';
 
 import {HomeComponent} from './home/home.component';
 
@@ -14,9 +15,14 @@ import {HomeComponent} from './home/home.component';
 const routes: Routes = [
   //define rules
   {
+    path:'browse',
+    component:BrowseComponent
+  },
+  {
     path:'',
     component: HomeComponent
   },
+  /////////////
   {
     path:'players',
     component: ManagePlayersComponent,

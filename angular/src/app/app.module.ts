@@ -22,6 +22,7 @@ import { AuthService } from './auth.service';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
+import { BrowseComponent } from './browse/browse.component';
 // import { GameOneComponent } from './game-one/game-one.component';
 // import { GameTwoComponent } from './game-two/game-two.component';
 // import { GameThreeComponent } from './game-three/game-three.component'; 
@@ -39,6 +40,7 @@ import { RegisterComponent } from './home/register/register.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    BrowseComponent,
     // GameOneComponent,
     // GameTwoComponent,
     // GameThreeComponent
