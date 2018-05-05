@@ -4,7 +4,7 @@ module.exports = {
     login(request, response) { 
         console.log('login', request.body);
 
-        User.findOne({ email: request.body.email})
+        User.findOne({ email: request.body.username})
         .then(user =>{
             if(!user) { throw Error(); }
 
