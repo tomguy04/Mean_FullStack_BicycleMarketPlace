@@ -1,0 +1,21 @@
+<div class = 'wrapper'>
+  *manage status component
+  <h1>Players Status - Game {{ currentGame }}</h1>
+    <a [routerLink] = "['/status','game','1']"> Game 1</a>
+    <a [routerLink] = "['/status','game','2']"> Game 2</a>
+    <a [routerLink] = "['/status','game','3']"> Game 3</a>
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- <h1>Players Status - Game {{ currentGame }}</h1>
+  
+    <nav>
+      <ul>
+        <li><a routerLink='../1' routerLinkActive="active">Game 1</a></li>
+        <li><a routerLink='../2' routerLinkActive="active">Game 2</a></li>
+        <li><a routerLink='../3' routerLinkActive="active">Game 3</a></li>
+      </ul>
+    </nav>
+  
+    <router-outlet></router-outlet> -->
+ 

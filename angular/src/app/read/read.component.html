@@ -1,0 +1,5 @@
+<router-outlet></router-outlet>
+<div class = 'wrapper'>
+  <p *ngFor='let player of players'>
+    {{player._id}}  {{player.TeamName}} <button (click)='onDelete(player._id)'>Delete</button>
+</div>

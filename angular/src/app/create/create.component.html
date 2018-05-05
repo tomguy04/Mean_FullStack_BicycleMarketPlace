@@ -1,0 +1,28 @@
+<router-outlet></router-outlet>
+<div class = 'wrapper'>
+    <form name = 'player' (submit)="onSubmit(form)" #form='ngForm'>
+
+        Player Name : 
+        <input 
+        type="text"
+        name="TeamName"
+        required
+        minlength="2"
+        [(ngModel)]="player.TeamName"
+        #TeamName='ngModel'
+        />
+        
+        <div class = 'side'*ngIf='TeamName.touched && TeamName.invalid'>Player Content is Required and must be at least 3 long</div><br>
+        
+        PreferredPosition : 
+        <input 
+        type="text"
+        name="PreferredPosition"
+        [(ngModel)]="player.PreferredPosition"
+        #PreferredPosition='ngModel'
+        />
+
+        <!-- <button type="submit" (click)='triggerEvent($event)' [disabled]="form.invalid">Submit</button>-->
+        <button type="submit"  [disabled]="form.invalid">Submit</button>
+    </form> 
+</div>

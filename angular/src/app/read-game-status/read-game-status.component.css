@@ -1,0 +1,17 @@
+.wrapper{
+    border: 2px solid black;
+    padding: 5px;
+    margin: 5px;
+}
+
+.green{
+    background-color:green;
+}
+
+.yellow{
+    background-color:yellow;
+}
+
+.red{
+    background-color:red;
+}

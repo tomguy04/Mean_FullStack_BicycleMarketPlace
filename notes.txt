@@ -1,0 +1,170 @@
+Project Product Management
+Build a product manager app in which a user may on the home page link to these tasks:
+1 - create a product
+2 - view all products
+  2a - edit a product
+  2b - delete a product
+
+Concentrate first on creating and viewing.
+
+
+REMINDER: When building applications which include forms and http requests, 
+be sure to import the 'FormsModule' and 'HttpModule' in your AppModule file (referenced in the 'Installation & CLI' chapter).
+
+1) start new project
+ng new <project-name> --routing
+
+2) create a few components and service
+cd..../<project-name>
+ng g c home (if needed)
+ng g c view
+ng g c edit
+ng generate service <service-name>
+Register our Service with our app.modules.ts file( { import } and providers) and each component that needs it.
+Service likely doesn't need to be reg'd in appcomp, but the subcomps that need it.
+-components that need the service {{ import }} and inject in the constructor
+  -constructor(private _<serviceName>: serviceName) { }
+
+3) import HttpClient
+  -appmodule import {HttpClientModule} from '@angular/common/http'; imports: [... HttpClientModule...]
+  -service import { HttpClient } from '@angular/common/http';  constructor(private _http: HttpClient) { }
+
+Dist file
+
+4 ) create routes to simply check for correct routing **MIGHT NEED NESTED ROUTES**
+  -app-routing.moudule.ts
+    //make sure components are imported
+    -import { SomeComponent } from './some/some.component';
+    //put in the routes...
+    const routes: Routes = [{}];
+
+    : Routes = [
+      {
+        //define rules
+        //root will go to <component>.
+        path:'',
+        pathMatch: 'full',
+        component: <component>,
+        children:[]
+      },
+      { 
+        //define rules
+        // will go to <anotherComponent>.
+        path:'<anotherComponent>',
+        pathMatch: 'full',
+        component: <anotherComponent>,
+        children:[]
+      },
+      
+    { 
+        //define rules
+        // will go to <nesttedcomponent>
+        path:'<parentComponent>',
+        //pathMatch: 'full',
+        component: <parentComponent>,
+        children: [{ path:'child', pathMatch: 'full',component : ChildComponent}
+
+        *****FOR CHILD ROUTE LIKE THIS, YOU NEED <ROUTER-OUTLET> IN <parentComponent>****
+    ]
+      },
+
+5) create form
+    a) requires a few lines in other files also
+        -app.module
+            import { FormsModule } from '@angular/forms'; // <-- Import FormsModule
+            import { HttpModule } from '@angular/http'; // <-- Import HttpModule
+            
+            .
+            .
+            imports: [
+                ...
+                FormsModule, // <-- Include module in our AppModules
+                HttpModule // <-- Include module in our AppModules
+            ],
+    b ) create a class for the data
+        export class Product{
+            constructor(
+            public title: string = '',
+            public price : number = 0,
+            public imgurl : string = '',
+            public created_at: Date = new Date(),
+            public updated_at: Date = new Date()
+            ){}
+        }
+
+
+5) TS for add product
+    product = new Product();
+
+  constructor(private _productService: ProductService) { }
+
+  onSubmit(formData:NgForm){
+    event.preventDefault();
+    const {value, valid} = formData;
+    console.log(this.product);
+    //this.addProduct.emit(this.product); //we can pass in any data type
+    this._productService.addProduct(this.product);
+    this.product = new Product();
+    formData.reset();
+    
+    // this.addQuote.emit(this.quote); //we can pass in any data type
+    // this.quote = new Quotes();
+    // formData.reset();
+  }
+  
+
+  ngOnInit() {
+  } 
+
+5) APP MODULE 
+  -NEEDS HTTPCLIENT
+  -import { AppRoutingModule } from './app-routing.module'; ...imports: [ ...AppRoutingModule,...]
+
+5 ) create app html, create links
+<a [routerLink] = "['']">Home</a> 
+<a [routerLink] = "['another']">Another</a>
+<router-outlet></router-outlet>
+
+5) the service needs to make the api and/or get calls and return the promise to any component the invokes its methods so that...
+    a view can retrieve that promise from a service and update itself with the new data from the api/get call.
+    
+    -in the service-
+    set up an array to keep your data in
+    make the api/get calls and return the promise
+    
+    import { Injectable } from '@angular/core';
+    import { BehaviorSubject } from 'Rxjs';
+    import { HttpClient, HttpParams } from '@angular/common/http';
+    import {Observable} from 'rxjs/Observable';
+
+    Injectable()
+    export class DataService {
+        private base = `https://...`
+        temperature:number;
+        temperature$ = new BehaviorSubject (0);
+
+    constructor(private _http: HttpClient) { }
+
+    retrieveWeather(city:String){
+    this._http.get<any[]>(this.base+`${city}`+'/something').subscribe(
+      (weatherArray:any[])=> {this.weatherArray$.next(weatherArray);}
+    )
+
+    --or--
+    export class ProductService {
+        PRODUCTS:Array<Product> = [];
+        constructor(private _http: HttpClient) { }
+    addProduct(product:Product){
+        console.log (product);
+        this.PRODUCTS.push(product);
+        console.log(this.PRODUCTS);
+    }
+    getProducts(): Observable<Product[]> {
+     return of (this.PRODUCTS);
+    }
+    }
+
+10) Read products
+    -ad read method in service
+    -call read service in read component
+

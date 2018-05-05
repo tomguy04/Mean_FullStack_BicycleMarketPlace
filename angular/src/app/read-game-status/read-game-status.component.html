@@ -1,0 +1,28 @@
+<div class = 'wrapper'>
+  *read game status component<br><br>
+  {{currentGame}}
+  <table border = 1>
+      <thead>
+        <tr>
+          <td>Team Name</td>
+          <td>Current Status</td>
+          <td>Actions</td>
+          
+        </tr>
+      </thead>
+        <tr *ngFor='let player of players'>
+          <td>{{player.TeamName}} {{player._id}}</td>
+          <td *ngIf = 'currentGame == 1'>{{player.game1}}</td>
+          <td *ngIf = 'currentGame == 2'>{{player.game2}}</td>
+          <td *ngIf = 'currentGame == 3'>{{player.game3}}</td>
+          
+          <button [class.green]="determineStatus(player)==='playing'" (click) = 'getPlayer(player,"playing",currentGame)'>Playing</button>
+          <button [class.red]="determineStatus(player)==='notPlaying'" (click) = 'getPlayer(player,"notPlaying",currentGame)'>Not Playing</button>
+          <button [class.yellow]="determineStatus(player)==='undecided'" (click) = 'getPlayer(player,"undecided",currentGame)'>Undecided</button>
+          <!-- <td *ngIf = 'data.importance'>High</td>
+          <td *ngIf = '!data.importance'>Low</td> -->
+       </tr>
+  </table>
+  <router-outlet></router-outlet>
+</div>
+
