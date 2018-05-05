@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Service } from '../../../object.service';
+import { Bike } from '../../../bike';
+import { NgForm } from '@angular/forms/src/directives/ng_form';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bike-form',
@@ -6,10 +10,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bike-form.component.css']
 })
 export class BikeFormComponent implements OnInit {
-
-  constructor() { }
+  bike: Bike = new Bike();
+  constructor(
+    private _Service: Service,
+    private _router : Router
+  ) { }
 
   ngOnInit() {
   }
-
+  
+  onSubmit(formData:NgForm){
+    event.preventDefault();
+    const {value, valid} = formData;
+    console.log('submitted', this.bike);
+    // this._Service.createBike(this.bike).subscribe(player =>{
+    //   console.log('created player in create ', player);
+    //   this.bike = new Bike();
+    //   formData.reset();
+    //   this._router.navigateByUrl('players/list');
+    // })
+  }
 }
+

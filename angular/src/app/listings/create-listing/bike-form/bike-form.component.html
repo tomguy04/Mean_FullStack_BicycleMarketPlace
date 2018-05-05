@@ -1,3 +1,65 @@
 <div class = 'wrapper'>
-    Form to Create Bike
+
+  <form name = 'bike' (submit)="onSubmit(form)" #form='ngForm'>
+
+      Title : 
+      <input 
+      type="text"
+      name="title"
+      required
+      minlength="0"
+      [(ngModel)]="bike.title"
+      #title='ngModel'
+      />
+      
+      <div class = 'side'*ngIf='title.touched && title.invalid'>Bike title is Required</div><br>
+      
+      Description : 
+      <input 
+      type="text"
+      name="description"
+      required
+      maxlength = "200"
+      [(ngModel)]="bike.description"
+      #description='ngModel'
+      />
+      <div class = 'side'*ngIf='description.touched && description.invalid'>Bike description is Required, 200 chars max</div><br>
+
+      Price : 
+      <input 
+      type="number"
+      name="price"
+      required
+      [(ngModel)]="bike.price"
+      #price='ngModel'
+      />
+      <div class = 'side'*ngIf='price.touched && price.invalid'>Bike Price is Required</div><br>
+
+      Location : 
+      <input 
+      type="string"
+      name="location"
+      required
+      [(ngModel)]="bike.location"
+      #location='ngModel'
+      />
+      <div class = 'side'*ngIf='location.touched && location.invalid'>Location is Required</div><br>
+
+      Image : 
+      <input 
+      type="string"
+      name="image"
+      required
+      [(ngModel)]="bike.image"
+      #image='ngModel'
+      />
+      <div class = 'side'*ngIf='image.touched && image.invalid'>Image is Required</div><br>
+
+
+      <!-- <button type="submit" (click)='triggerEvent($event)' [disabled]="form.invalid">Submit</button>-->
+      <button type="submit"  [disabled]="form.invalid">Submit</button>
+  </form> 
+
   </div>
+  <router-outlet></router-outlet>
+  

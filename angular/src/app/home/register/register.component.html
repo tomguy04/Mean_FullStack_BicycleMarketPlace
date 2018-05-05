@@ -11,11 +11,11 @@
     <form (submit)='onSubmit(register.value)' #register='ngForm' class='form-group'>
       <div class="form-control">
         <label for="">Username</label>
-        <input type="text" name='username' #name='ngModel' [(ngModel)]='user.username'>
+        <input type="text" name='username' #username='ngModel' [(ngModel)]='user.username'>
       </div>
       <div class="form-control">
         <label for="">Email</label>
-        <input type="email" name='email' #username='ngModel' [(ngModel)]='user.email'>
+        <input type="email" name='email' #email='ngModel' [(ngModel)]='user.email'>
       </div>
       <div class="form-control">
         <label for="">Password</label>

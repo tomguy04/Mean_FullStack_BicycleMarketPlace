@@ -25,7 +25,7 @@ import { RegisterComponent } from './home/register/register.component';
 import { BrowseComponent } from './browse/browse.component';
 import { ListingsComponent } from './listings/listings.component';
 import { CreateListingComponent } from './listings/create-listing/create-listing.component';
-import { EditDeleteListingComponent } from './listings/edit-delete-listing/edit-delete-listing.component';
+import { EditDeleteListingComponent } from './listings/edit-delete/edit-delete-listing/edit-delete-listing.component';
 import { AllBikesComponent } from './browse/all-bikes/all-bikes.component';
 import { EditDeleteComponent } from './listings/edit-delete/edit-delete.component';
 import { BikeFormComponent } from './listings/create-listing/bike-form/bike-form.component';

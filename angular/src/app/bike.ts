@@ -1,7 +1,8 @@
 export class Bike {
-    _id: string;
-    title:string;
-    desc: string;
-    price: number;
-    imgUrl : string;
+    public _id: string;
+    public title:string = '';
+    public desc: string;
+    public price: number;
+    public imgUrl : string;
 }
+

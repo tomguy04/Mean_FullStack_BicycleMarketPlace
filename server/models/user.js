@@ -3,35 +3,37 @@ const uniqueValidator = require('mongoose-unique-validator');
 const bcrypt = require('bcrypt');
 const validator = require('validator');
 const mongoose = require('mongoose');
-
 const { Schema } = mongoose;
 
-const userSchema = new Schema({
-    username:{
-        type:String,
-        required : true,
-        trim:true,
-        unique: true, //unique index for the String
-    },
-    email:{
+const userSchema = new Schema(
+    {
+      username: {
         type: String,
         required: true,
-        trim:true,
-        unique: true,
-        validate:{//custom validation
-            validator(value){
-                return validator.isEmail(value);
-            }
-        }
-    },
-    password:{
-        type:String,
+        trim: true,
+        unique: true
+      },
+      email: {
+        type: String,
         required: true,
+        trim: true,
+        unique: true,
+        validate: {
+          validator(value) {
+            return validator.isEmail(value);
+          }
+        }
+      },
+  
+      password: {
+        type: String,
+        required: true
+      }
+    },
+    {
+      timestamps: true
     }
-},{
-    timestamps:true
-  }
-);
+  )
 
 //use this middleware
 userSchema.plugin(uniqueValidator, { message: '{PATH} must be unique' });
