@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component'
-import { CreateComponent } from './create/create.component';
-import { ReadComponent } from './read/read.component';
-import { ManagePlayersComponent } from './manage-players/manage-players.component';
-import { ManageStatusComponent } from './manage-status/manage-status.component';
-import { ReadGameStatusComponent } from './read-game-status/read-game-status.component';
-import { UpdateGameStatusComponent } from './update-game-status/update-game-status.component';
+// import { CreateComponent } from './create/create.component';
+// import { ReadComponent } from './read/read.component';
+// import { ManagePlayersComponent } from './manage-players/manage-players.component';
+// import { ManageStatusComponent } from './manage-status/manage-status.component';
+// import { ReadGameStatusComponent } from './read-game-status/read-game-status.component';
+// import { UpdateGameStatusComponent } from './update-game-status/update-game-status.component';
 import { BrowseComponent } from './browse/browse.component';
+import { ListingsComponent } from './listings/listings.component';
 
 import {HomeComponent} from './home/home.component';
 
@@ -15,28 +16,32 @@ import {HomeComponent} from './home/home.component';
 const routes: Routes = [
   //define rules
   {
+    path:'listings',
+    component:ListingsComponent //drills down to form to create bike
+  },
+  {
     path:'browse',
-    component:BrowseComponent
+    component:BrowseComponent //was manage players "Manage Player | Manage Status"
   },
   {
     path:'',
     component: HomeComponent
   },
   /////////////
-  {
-    path:'players',
-    component: ManagePlayersComponent,
-    children: [
-      {
-        path:'list',
-        component: ReadComponent
-      },
-      {
-        path:'create',
-        component: CreateComponent
-      }
-    ]
-  },
+  // {
+  //   path:'players',
+  //   component: ManagePlayersComponent,
+  //   children: [
+  //     {
+  //       path:'list',
+  //       component: ReadComponent
+  //     },
+  //     {
+  //       path:'create',
+  //       component: CreateComponent
+  //     }
+  //   ]
+  // },
 
   // {
   //   path: 'status/game/:id',
@@ -49,16 +54,16 @@ const routes: Routes = [
   //   ]
   // }
 
-  {
-    path:'status/game/:id',
-    component: ManageStatusComponent, // this should have the Game 1 with 1 2 and 3 as links.
-    children : [
-        {
-          path:'',
-          component : ReadGameStatusComponent
-        }
-      ]
-  }
+  // {
+  //   path:'status/game/:id',
+  //   component: ManageStatusComponent, // this should have the Game 1 with 1 2 and 3 as links.
+  //   children : [
+  //       {
+  //         path:'',
+  //         component : ReadGameStatusComponent
+  //       }
+  //     ]
+  // }
 
   // {
   //   path:'status',

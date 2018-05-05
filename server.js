@@ -42,6 +42,7 @@ app.use('/api',require('./server/config/routes'));
 //I think I need this additional line
 app.use('/api',require('./server/config/auth.routes'));
 //
+
 app.use(require('./server/config/catch-all.route'))
 
 

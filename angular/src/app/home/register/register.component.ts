@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
 
     this._auth.register(user).subscribe(
       ()=>{
-        this._router.navigateByUrl('players/list');
+        this._router.navigateByUrl('browse');
       },
       error => {
         console.log(error);

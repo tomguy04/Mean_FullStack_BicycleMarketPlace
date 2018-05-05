@@ -23,6 +23,12 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
 import { BrowseComponent } from './browse/browse.component';
+import { ListingsComponent } from './listings/listings.component';
+import { CreateListingComponent } from './listings/create-listing/create-listing.component';
+import { EditDeleteListingComponent } from './listings/edit-delete-listing/edit-delete-listing.component';
+import { AllBikesComponent } from './browse/all-bikes/all-bikes.component';
+import { EditDeleteComponent } from './listings/edit-delete/edit-delete.component';
+import { BikeFormComponent } from './listings/create-listing/bike-form/bike-form.component';
 // import { GameOneComponent } from './game-one/game-one.component';
 // import { GameTwoComponent } from './game-two/game-two.component';
 // import { GameThreeComponent } from './game-three/game-three.component'; 
@@ -41,6 +47,12 @@ import { BrowseComponent } from './browse/browse.component';
     LoginComponent,
     RegisterComponent,
     BrowseComponent,
+    ListingsComponent,
+    CreateListingComponent,
+    EditDeleteListingComponent,
+    AllBikesComponent,
+    EditDeleteComponent,
+    BikeFormComponent,
     // GameOneComponent,
     // GameTwoComponent,
     // GameThreeComponent

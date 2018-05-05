@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   onSubmit(user:User){
     this._auth.login(user)
     .subscribe(()=>{
-      this.router.navigateByUrl('players/list')
+      this.router.navigateByUrl('browse')
     })
   }
 
