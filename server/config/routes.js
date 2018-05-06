@@ -15,7 +15,7 @@ const router = require('express').Router();
     .get('/bikes', bikeController.index) //get all bikes
     
     //user 
-    .get('/users', userController.show) //get the user
+    .get('/user', userController.show) //get the user
 
     .get('/players', playerController.index) //get all players
     .post('/players',playerController.create) //add a player

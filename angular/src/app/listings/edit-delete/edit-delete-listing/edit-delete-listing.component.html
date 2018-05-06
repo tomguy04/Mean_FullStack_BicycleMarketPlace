@@ -1,12 +1,13 @@
 
-ALL BIKES FOR NOW
-<div class = 'wrapper'>
-  
 
-    <div class = 'wrapper'  *ngFor = 'let bike of bikes'>
+<div class = 'wrapper'>
+  <!-- {{user|json}} -->
+
+    <div class = 'wrapper'  *ngFor = 'let bike of user?.user?.bike'>
+      {{bike.title}}
      
       <!-- <p *ngIf = 'bike._user == user.user._id'></p> -->
-        {{bike.title}}
+        <!-- {{bike.title}} -->
     
-      </div>
+      <!-- </div> -->
 </div>

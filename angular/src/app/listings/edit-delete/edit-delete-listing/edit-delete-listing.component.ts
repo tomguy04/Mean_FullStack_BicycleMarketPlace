@@ -29,15 +29,19 @@ export class EditDeleteListingComponent implements OnInit {
         user => {
           this.user = user,
           console.log('the user in edit-delete comp ', this.user)
+         
+          
+          
+
         }
       );
       
-      this._Service.getBikes().subscribe(
-        bikes => {
-          this.bikes = bikes,
-          console.log('the myBikes in read comp ', this.bikes)
-        }
-      );
+      // this._Service.getBikes().subscribe(
+      //   bikes => {
+      //     this.bikes = bikes,
+      //     console.log('the myBikes in read comp ', this.bikes)
+      //   }
+      // );
     }
   
   }

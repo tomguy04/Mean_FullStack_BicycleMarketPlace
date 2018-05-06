@@ -23,7 +23,7 @@ export class Service {
 
   getUser():Observable<User>{
     console.log('Service getUser');
-    return this._http.get<User>('api/users');
+    return this._http.get<User>('api/user');
   }
 
   getBikes(): Observable<Bike[]> {

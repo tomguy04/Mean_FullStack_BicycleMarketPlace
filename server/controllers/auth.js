@@ -2,6 +2,13 @@ const User = require('mongoose').model('User');
 
 module.exports = {
 
+    // app.get('/', function(req, res) {
+    //     Post.find({}) //find all the Posts
+    //     .populate('comments') //gather this posts's comments
+    //     .exec((err,post) => { //add this post's comments ids to the comment array.
+    //         res.render('index', {posts:post}); //render the page with all the posts and comments
+    //     })
+
     show(req, res) {
         console.log(req.session.user._id, "do you exist here?");
         if (req.session.user._id === undefined) {
@@ -9,28 +16,24 @@ module.exports = {
         }
         else {
             User.findOne({_id: req.session.user._id}, function(err, user)
+            
         {
             if(user)
             {
-                
-                res.json({session: req.session.user, user:user});
+
+                //user.populate('bike')//.exec((err,bike) => {console.log('in show bike ', user)})
+                //console.log('users bikes ', user.bike);
+                res.json({
+                    //bikes:user.populate('bike').exec((err,bike) => {console.log('in show bike ', user)}),
+                    session: req.session.user, user:user,
+
+     
+                });
             }
-        })
+        }).populate('bike').exec((err,bike) => {console.log('show bike', bike)})
+        //
         }
-        // console.log(req.session.user_id, "do you exist here?");
-        // if (req.session.user_id === undefined) {
-        //     res.json({session: false})
-        // }
-        // else {
-        //     User.findOne({_id: req.session.user_id}, function(err, user)
-        // {
-        //     if(user)
-        //     {
-                
-        //         res.json({session: req.session.user_id, user:user});
-        //     }
-        // })
-        // }
+
     },
 
     login(request, response) { 
