@@ -23,12 +23,12 @@ export class BikeFormComponent implements OnInit {
     event.preventDefault();
     const {value, valid} = formData;
     console.log('submitted', this.bike);
-    // this._Service.createBike(this.bike).subscribe(player =>{
-    //   console.log('created player in create ', player);
-    //   this.bike = new Bike();
-    //   formData.reset();
-    //   this._router.navigateByUrl('players/list');
-    // })
+     this._Service.createBike(this.bike).subscribe(bike =>{
+       console.log('created bike in create ', bike);
+       this.bike = new Bike();
+       formData.reset();
+       this._router.navigateByUrl('listings');
+     })
   }
 }
 

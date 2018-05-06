@@ -1,4 +1,5 @@
 const playerController = require('../controllers/player');
+const bikeController = require('../controllers/bike');
 
 //
 const router = require('express').Router();
@@ -8,22 +9,9 @@ const router = require('express').Router();
 //module.exports = function(app){
     router
 
-    // app 
-    // .get('/tasks', taskController.index)
-    // .post('/tasks', taskController.create)
-    // .all("*", (req,res,next) => {
-    //   res.sendFile(path.resolve("./public/dist/index.html"))
-    // });
-
-    // app.get('/tasks', (req,res) =>{
-
-    // });
-    // app.post('/tasks', (req,res) =>{
-        
-    // });
-
-    // app.get('/read', playerController.index);
-    // app.get('/players/', playerController.index);
+    //bikes
+    .post('/bikes',bikeController.create) //add a bike
+    .get('/bikes', bikeController.index) //get all bikes
     
     .get('/players', playerController.index) //get all players
     .post('/players',playerController.create) //add a player

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Player } from './player';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { Http } from '@angular/http';
+import { Bike } from './bike'
 
 @Injectable()
 export class Service {
@@ -13,12 +14,16 @@ export class Service {
   //constructor(private _http: Http) { }
   constructor(private _http: HttpClient) { }
 
-  // retrieveAll() {
-  //   this._http.get('api/players').subscribe(
-  //     players => this.playerObserver.next(players),
-  //     errorResponse => console.log(errorResponse)
-  //   );
-  // }
+
+  createBike(bike: Bike):Observable<Bike>{
+    console.log('Service create BIKE', bike);
+    return this._http.post<Bike>('api/bikes', bike)
+  }
+
+  getBikes(): Observable<Bike[]> {
+    return this._http.get<Bike[]>('api/bikes');
+  }
+
   getPlayers(): Observable<Player[]> {
     return this._http.get<Player[]>('api/players');
     // return of(BOOKS);

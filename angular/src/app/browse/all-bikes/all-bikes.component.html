@@ -1,4 +1,7 @@
 <div class = 'wrapper'>
   Search bar [    ]
-  <p>Pull in all bikes</p>
+  <div class = 'wrapper' *ngFor = 'let bike of bikes'>
+    {{bike.title}}
+
+  </div>
 </div>

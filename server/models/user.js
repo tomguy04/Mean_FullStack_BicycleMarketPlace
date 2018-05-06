@@ -28,8 +28,10 @@ const userSchema = new Schema(
       password: {
         type: String,
         required: true
-      }
+      },
+      bike: [{ type: Schema.Types.ObjectId, ref: 'Bike' }],
     },
+    
     {
       timestamps: true
     }

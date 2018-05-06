@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Service } from '../../../object.service';
+import { Bike } from '../../../bike';
+import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-delete-listing',

@@ -32,6 +32,8 @@ const bikeSchema = new Schema({
       trim: true,
       required: [true, 'image is required'],
     },
+
+    _user: {type: Schema.Types.ObjectId, ref: 'User'},
     
 
   }, {
