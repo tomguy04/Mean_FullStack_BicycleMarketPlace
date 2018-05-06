@@ -1,5 +1,6 @@
 const playerController = require('../controllers/player');
 const bikeController = require('../controllers/bike');
+const userController = require('../controllers/auth');
 
 //
 const router = require('express').Router();
@@ -13,6 +14,9 @@ const router = require('express').Router();
     .post('/bikes',bikeController.create) //add a bike
     .get('/bikes', bikeController.index) //get all bikes
     
+    //user 
+    .get('/users', userController.show) //get the user
+
     .get('/players', playerController.index) //get all players
     .post('/players',playerController.create) //add a player
     .delete('/players/:playerID', playerController.destroy) //delete a player

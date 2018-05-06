@@ -1,6 +1,38 @@
 const User = require('mongoose').model('User');
 
 module.exports = {
+
+    show(req, res) {
+        console.log(req.session.user._id, "do you exist here?");
+        if (req.session.user._id === undefined) {
+            res.json({session: false})
+        }
+        else {
+            User.findOne({_id: req.session.user._id}, function(err, user)
+        {
+            if(user)
+            {
+                
+                res.json({session: req.session.user, user:user});
+            }
+        })
+        }
+        // console.log(req.session.user_id, "do you exist here?");
+        // if (req.session.user_id === undefined) {
+        //     res.json({session: false})
+        // }
+        // else {
+        //     User.findOne({_id: req.session.user_id}, function(err, user)
+        // {
+        //     if(user)
+        //     {
+                
+        //         res.json({session: req.session.user_id, user:user});
+        //     }
+        // })
+        // }
+    },
+
     login(request, response) { 
         console.log('login', request.body);
 
