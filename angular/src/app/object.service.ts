@@ -30,6 +30,19 @@ export class Service {
     return this._http.get<Bike[]>('api/bikes');
   }
 
+  deleteBike(id: string): Observable<Bike> {
+    console.log('in delete service');
+    return this._http.delete<Bike>(`api/bikes/${id}`);
+  }
+
+  getContactFindOne(id:String):Observable<User>{
+  //  getContactFindOne(id:String){
+    console.log('Service getUser withid ', id);
+    //console.log( this._http.get<User>('api/userdata/${id}'));
+    return this._http.get<User>(`api/userdata/${id}`);
+  }
+  
+
   
 
   getPlayers(): Observable<Player[]> {

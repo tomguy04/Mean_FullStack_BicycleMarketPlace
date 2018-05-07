@@ -9,6 +9,33 @@ module.exports = {
     //         res.render('index', {posts:post}); //render the page with all the posts and comments
     //     })
 
+   
+
+    findOne(request, response){
+        console.log(request.params.userID);
+        User.findById(request.params.userID)//.populate('bike')
+        .then(user =>{
+            if (!user){
+                throw Error();
+            }
+            //console.log('found the listing user ', user )
+            //return user
+            response.json(user)
+            }
+        )
+        .catch(() =>{
+            console.log('findOne fail');
+        })
+    },
+    
+    // show(request, response) {
+    //     Book.findById(request.params.bookID)
+    //       .then(book => response.json(book))
+    //       .catch(console.log);
+    //   },
+
+
+    //
     show(req, res) {
         console.log(req.session.user._id, "do you exist here?");
         if (req.session.user._id === undefined) {

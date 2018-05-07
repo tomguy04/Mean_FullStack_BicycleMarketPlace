@@ -29,9 +29,13 @@ import { EditDeleteListingComponent } from './listings/edit-delete/edit-delete-l
 import { AllBikesComponent } from './browse/all-bikes/all-bikes.component';
 import { EditDeleteComponent } from './listings/edit-delete/edit-delete.component';
 import { BikeFormComponent } from './listings/create-listing/bike-form/bike-form.component';
+
+ import { FilterPipe } from './search.pipe';
 // import { GameOneComponent } from './game-one/game-one.component';
 // import { GameTwoComponent } from './game-two/game-two.component';
 // import { GameThreeComponent } from './game-three/game-three.component'; 
+
+
 
 
 @NgModule({
@@ -53,6 +57,7 @@ import { BikeFormComponent } from './listings/create-listing/bike-form/bike-form
     AllBikesComponent,
     EditDeleteComponent,
     BikeFormComponent,
+    FilterPipe
     // GameOneComponent,
     // GameTwoComponent,
     // GameThreeComponent

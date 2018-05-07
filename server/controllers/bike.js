@@ -49,8 +49,8 @@ module.exports={
     },
 
     destroy(request, response) {
-        Bike.findByIdAndRemove(request.params.playerID)
-          .then(player => response.json(player))
+        Bike.findByIdAndRemove(request.params.bikeID)
+          .then(bike => response.json(bike))
           .catch(console.log);
       },
 

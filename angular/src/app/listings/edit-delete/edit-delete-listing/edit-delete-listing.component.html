@@ -4,10 +4,86 @@
   <!-- {{user|json}} -->
 
     <div class = 'wrapper'  *ngFor = 'let bike of user?.user?.bike'>
-      {{bike.title}}
-     
-      <!-- <p *ngIf = 'bike._user == user.user._id'></p> -->
-        <!-- {{bike.title}} -->
-    
-      <!-- </div> -->
+      <!-- <p>Image: {{bike.img}}</p>
+      <p>Title: {{bike.title}}</p>
+      <p>Desription: {{bike.description}}</p>
+      <p>Price: {{bike.price}}</p>
+      <p>Location : {{bike.location}}</p> -->
+      <h1>Update 'em!</h1>
+      <form name = 'bikeUD' (submit)="onSubmit(form)" #form='ngForm'>
+          
+          <!-- <input
+            value = "{{bike._id}}"
+            type="hidden"
+            name = "_id"
+            required
+            minlength="0"
+            [(ngModel)]="bike.title"
+            #title='ngModel'
+          /> -->
+          
+
+            Title : 
+              <input
+                value = "{{bike.title}}"
+                type="text"
+                name="title"
+                required
+                minlength="0"
+                [(ngModel)]="bike.title"
+                #title='ngModel'
+              />
+              
+              <div class = 'side'*ngIf='title.touched && title.invalid'>Bike Title is reqd</div><br>
+              
+              Description :
+              <input
+                value = "{{bike.description}}" 
+                name="description" 
+                required 
+                [(ngModel)]="bike.description"
+                #description='ngModel'
+              />
+              <div class = 'side'*ngIf='price.touched && price.invalid'>Bike Price is Required</div><br>
+
+              Price : 
+              <input 
+              value = "{{bike.price}}" 
+              type="number"
+              name="price"
+              required
+              [(ngModel)]="bike.price"
+              #price='ngModel'
+              />
+              <div class = 'side'*ngIf='price.touched && price.invalid'>Bike Price is Required</div><br>
+
+              Location:
+              <input 
+                value = "{{bike.location}}" 
+                type="string" 
+                name="location" 
+                [(ngModel)]="bike.location"
+                #location='ngModel'
+              />
+              <div class = 'side'*ngIf='location.touched && location.invalid'>Location is Required</div><br>
+
+              Image : 
+              <input 
+              value = "{{bike.image}}" 
+              type="string"
+              name="image"
+              required
+              [(ngModel)]="bike.image"
+              #image='ngModel'
+              />
+              <div class = 'side'*ngIf='image.touched && image.invalid'>Image is Required</div><br>
+              <button type="submit"  [disabled]="form.invalid">Submit</button>    
+           </form>
+           
+           <!--  -->
+      <button (click)='onDelete(bike._id)'>Delete</button>
+      <!-- <button (click)='onEdit(bike._id)'>Edit</button> -->
+      
+      
+
 </div>
