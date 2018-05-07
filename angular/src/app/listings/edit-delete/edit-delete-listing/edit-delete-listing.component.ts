@@ -59,16 +59,20 @@ export class EditDeleteListingComponent implements OnInit {
       // );
     }
 
-    onSubmit(formData:NgForm){
+    onSubmit(formData:NgForm, bikeId: string){
       event.preventDefault();
       const {value, valid} = formData;
-      console.log('submitted', this.bike);
+      console.log('formData is ', value);
+      
 
-      // this.sub = this._Service.editBikeStatus(this.bike);
-      // .subscribe(
-      //   updatedPlayer => console.log(updatedPlayer),
-      //   console.log
-      // );
+      this.sub = this._Service.editBike(value)
+      .subscribe(
+        updatedBike => {
+          console.log('updted bike ', updatedBike),
+          this.user.bike = this.user.bike.filter(p => p._id !== updatedBike._id);
+          this.user.bike.push(updatedBike);
+        }
+      );
       //this._Service.createBike(this.bike).subscribe(bike =>{
       //    console.log('created bike in create ', bike);
       //    this.bike = new Bike();

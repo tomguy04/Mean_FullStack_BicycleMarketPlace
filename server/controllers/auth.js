@@ -42,25 +42,11 @@ module.exports = {
             res.json({session: false})
         }
         else {
-            User.findOne({_id: req.session.user._id}, function(err, user)
-            
-        {
-            if(user)
-            {
-
-                //user.populate('bike')//.exec((err,bike) => {console.log('in show bike ', user)})
-                //console.log('users bikes ', user.bike);
-                res.json({
-                    //bikes:user.populate('bike').exec((err,bike) => {console.log('in show bike ', user)}),
-                    session: req.session.user, user:user,
-
-     
-                });
-            }
-        }).populate('bike').exec((err,bike) => {console.log('show bike', bike)})
-        //
+            User.findOne({_id: req.session.user._id})
+            .populate('bike')
+            .then(user => res.json(user))
+            .catch(error => res.status(400).json(error))
         }
-
     },
 
     login(request, response) { 
@@ -102,7 +88,8 @@ module.exports = {
         response.clearCookie('userID');
         response.clearCookie('expiration');
 
-        response.json(true);
+        //response.json(true);
+        response.json({message: "You have been logged out!"});
     }
 };
 

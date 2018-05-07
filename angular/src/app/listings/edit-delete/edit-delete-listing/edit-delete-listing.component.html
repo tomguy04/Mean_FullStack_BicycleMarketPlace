@@ -3,25 +3,18 @@
 <div class = 'wrapper'>
   <!-- {{user|json}} -->
 
-    <div class = 'wrapper'  *ngFor = 'let bike of user?.user?.bike'>
-      <!-- <p>Image: {{bike.img}}</p>
-      <p>Title: {{bike.title}}</p>
-      <p>Desription: {{bike.description}}</p>
-      <p>Price: {{bike.price}}</p>
-      <p>Location : {{bike.location}}</p> -->
+    <div class = 'wrapper'  *ngFor = 'let bike of user?.bike'>
       <h1>Update 'em!</h1>
-      <form name = 'bikeUD' (submit)="onSubmit(form)" #form='ngForm'>
-          
-          <!-- <input
-            value = "{{bike._id}}"
+      <form name = 'update' (submit)="onSubmit(form)" #form='ngForm'>
+            {{bike._id}}
+            ID:
+            <input
+            
             type="hidden"
-            name = "_id"
-            required
-            minlength="0"
-            [(ngModel)]="bike.title"
+            name="_id"
+            [(ngModel)]="bike._id"
             #title='ngModel'
-          /> -->
-          
+          />
 
             Title : 
               <input
@@ -44,7 +37,7 @@
                 [(ngModel)]="bike.description"
                 #description='ngModel'
               />
-              <div class = 'side'*ngIf='price.touched && price.invalid'>Bike Price is Required</div><br>
+              <div class = 'side'*ngIf='description.touched && description.invalid'>Bike description is Required</div><br>
 
               Price : 
               <input 
@@ -77,10 +70,10 @@
               #image='ngModel'
               />
               <div class = 'side'*ngIf='image.touched && image.invalid'>Image is Required</div><br>
-              <button type="submit"  [disabled]="form.invalid">Submit</button>    
+              <button type="submit"  [disabled]="form.invalid">Submit</button>     
            </form>
            
-           <!--  -->
+           
       <button (click)='onDelete(bike._id)'>Delete</button>
       <!-- <button (click)='onEdit(bike._id)'>Edit</button> -->
       

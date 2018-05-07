@@ -15,16 +15,28 @@ export class Service {
   //constructor(private _http: Http) { }
   constructor(private _http: HttpClient) { }
 
+  //logout
+  logout(){
+    return this._http.get(`api/user/logout`);
+  }
+
+  //USER FOR EDITING THE BIKE
+  editBike(bike: Bike):Observable<Bike>{
+    return this._http.put<Bike>(`api/bikes/${bike._id}`, bike)
+  }
+
+  //GETS THE SPECIFIC USER'S BIKES.
+  getUser():Observable<User>{
+    console.log('Service getUser');
+    return this._http.get<User>('api/user');
+  }
 
   createBike(bike: Bike):Observable<Bike>{
     console.log('Service create BIKE', bike);
     return this._http.post<Bike>('api/bikes', bike)
   }
 
-  getUser():Observable<User>{
-    console.log('Service getUser');
-    return this._http.get<User>('api/user');
-  }
+
 
   getBikes(): Observable<Bike[]> {
     return this._http.get<Bike[]>('api/bikes');

@@ -13,11 +13,14 @@ const router = require('express').Router();
     //bikes
     .post('/bikes',bikeController.create) //add a bike
     .get('/bikes', bikeController.index) //get all bikes
-    .delete('/bikes/:bikeID', bikeController.destroy) //delete a player
+    .delete('/bikes/:bikeID', bikeController.destroy) //delete a bike
+    .put('/bikes/:bikeID', bikeController.update) //update a bike
+    
     
     //user 
     .get('/user', userController.show) //get the user
     .get('/userdata/:userID', userController.findOne) //get the user
+    .get('/user/logout',userController.logout)//logout
 
     .get('/players', playerController.index) //get all players
     .post('/players',playerController.create) //add a player

@@ -1,7 +1,7 @@
 <div class = 'wrapper'>
   Search bar [    ]
   <input [(ngModel)]="searchText" placeholder="search text goes here">
-  <div class = 'wrapper' *ngFor = 'let bike of bikes| filter : searchText'>
+  <div class = 'wrapper' *ngFor = 'let bike of bikes| search '>
     
     <!-- {{bike.title}} -->
     <!-- <p>Id: {{bike._id}}</p> -->
@@ -11,8 +11,8 @@
     <p>Desription: {{bike.description}}</p>
     <p>Price: {{bike.price}}</p>
     <p>Location : {{bike.location}}</p>
-    <button *ngIf='bike._user === user?.user?._id'(click)='onDelete(bike._id)'>Delete</button>
-    <button *ngIf='bike._user !== user?.user?._id'(click)='onContact(bike._user)'>Contact</button>
+    <button *ngIf='bike._user === user?._id'(click)='onDelete(bike._id)'>Delete</button>
+    <button *ngIf='bike._user !== user?._id'(click)='onContact(bike._user)'>Contact</button>
 
   </div>
 </div>

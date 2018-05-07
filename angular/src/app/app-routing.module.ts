@@ -11,10 +11,15 @@ import { BrowseComponent } from './browse/browse.component';
 import { ListingsComponent } from './listings/listings.component';
 
 import {HomeComponent} from './home/home.component';
+import {LogoutComponent} from './home/logout/logout.component';
 
 
 const routes: Routes = [
   //define rules
+  {
+    path:'logout',
+    component:LogoutComponent
+  },
   {
     path:'listings',
     component:ListingsComponent //drills down to form to create bike

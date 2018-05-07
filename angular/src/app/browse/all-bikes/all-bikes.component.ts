@@ -14,6 +14,7 @@ export class AllBikesComponent implements OnInit {
   bikes: Bike[]=[];
   user : User;
   contactUser : User = new User();
+  // search: Bike = new Bike();
 
   constructor(
      private _Service: Service,

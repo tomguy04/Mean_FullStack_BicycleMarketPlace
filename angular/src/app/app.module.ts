@@ -30,7 +30,8 @@ import { AllBikesComponent } from './browse/all-bikes/all-bikes.component';
 import { EditDeleteComponent } from './listings/edit-delete/edit-delete.component';
 import { BikeFormComponent } from './listings/create-listing/bike-form/bike-form.component';
 
- import { FilterPipe } from './search.pipe';
+ import { SearchPipe } from './search.pipe';
+import { LogoutComponent } from './home/logout/logout.component';
 // import { GameOneComponent } from './game-one/game-one.component';
 // import { GameTwoComponent } from './game-two/game-two.component';
 // import { GameThreeComponent } from './game-three/game-three.component'; 
@@ -57,7 +58,8 @@ import { BikeFormComponent } from './listings/create-listing/bike-form/bike-form
     AllBikesComponent,
     EditDeleteComponent,
     BikeFormComponent,
-    FilterPipe
+    SearchPipe,
+    LogoutComponent
     // GameOneComponent,
     // GameTwoComponent,
     // GameThreeComponent

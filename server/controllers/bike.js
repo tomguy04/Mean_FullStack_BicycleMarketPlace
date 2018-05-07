@@ -9,9 +9,10 @@ module.exports={
     },
 
     update(request, response) {
-        Bike.findByIdAndUpdate(request.params.playerID, request.body, { new: true })
+        console.log('in the bike update controller');
+        Bike.findByIdAndUpdate(request.params.bikeID, request.body, { new: true })
         //Player.findByIdAndUpdate(request.params.playerID, request.body, { new: true })
-          .then(book => response.json(book))
+          .then(bike => response.json(bike))
           .catch(console.log);
       },
 
